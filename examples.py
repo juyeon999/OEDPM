@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# Toy example for OEDPM
+# @Time    : 2024/1/1
+# @Author  : Juyeon Park (wndus1712@gmail.com)
+
 from oedpm import OEDPM
 from data_generator import benchmark_generator
 from common import calculate_metrics
