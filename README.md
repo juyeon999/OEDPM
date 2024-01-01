@@ -1,5 +1,4 @@
 This repository is the source code of the paper "**Unsupervised Outlier Detection using Random Subspace and Subsampling Ensembles of Dirichlet Process Mixtures**". (see the full paper at xxx) 
-The model proposed in this paper is referred to as the **Outlier Ensemble of Dirichlet Process Mixtures (OEDPM)**.
 
 # How to use?
 OEDPM provides easy APIs like the sklearn style. We first instantiate the model class by giving the parameters then, the instantiated model can be used to fit and predict data.
