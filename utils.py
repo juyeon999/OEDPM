@@ -1,3 +1,8 @@
+# -*- coding: utf-8 -*-
+# Function for toy example
+# @Time    : 2024/1/1
+# @Author  : Juyeon Park (wndus1712@gmail.com)
+
 import numpy as np
 import pandas as pd
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, roc_auc_score, auc, precision_recall_curve
