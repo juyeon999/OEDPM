@@ -1,7 +1,8 @@
 This repository is the source code of the paper "**Unsupervised Outlier Detection using Random Subspace and Subsampling Ensembles of Dirichlet Process Mixtures**". (see the full paper at https://arxiv.org/abs/2401.00773) 
 
 # How to use?
-OEDPM provides easy APIs like the sklearn style. We first instantiate the model class by giving the parameters then, the instantiated model can be used to fit and predict data.
+OEDPM offers user-friendly APIs similar to those in sklearn. Initially, we create an instance of the model class using specified parameters. Once instantiated, this model can then be employed for fitting and predicting data.
+
 ```python
 from oedpm import OEDPM
 model_configs = {'n_components':100, 'useIQRMethod':False, 'contamination':'auto'}
