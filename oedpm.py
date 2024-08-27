@@ -104,7 +104,7 @@ class OEDPM():
         """
         Fit DPGMM using variational inference
         """
-        dpgmm = BayesianGaussianMixture(n_components=30, covariance_type=self.cov_type, init_params="k-means++", weight_concentration_prior_type="dirichlet_process")
+        dpgmm = BayesianGaussianMixture(n_components=30, covariance_type=self.cov_type, init_params="k-means++", weight_concentration_prior_type="dirichlet_process", weight_concentration_prior=1)
         dpgmm.fit(X)
         return dpgmm
 
