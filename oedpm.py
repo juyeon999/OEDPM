@@ -78,25 +78,27 @@ class OEDPM():
         """
         Random projection (Outlier Analysis, Aggarwal, Charu C, 2017 p.202)
         """
-        # Random projection dimension
+        # Reduce dimension - Random projection
+        ## Random projection dimension
         lower = 2 + math.ceil(np.sqrt(X.shape[1])/2)  # reduced dimension = 2 + sqrt(d)/2
         upper = 2 + math.floor(np.sqrt(X.shape[1]))     # reduced dimension = 2 + sqrt(d)  
         d = np.random.randint(lower, upper+1) if X.shape[1] > 2 else 2  # bigger than 2
 
-        # Random rotatation system
+        ## Random rotatation system
         Y_ = np.random.uniform(-1, 1, size=(X.shape[1], d))
         R, _ = gramschmidt(Y_)  # Gram-Schmidt orthogonalization
         X_reduced = np.matmul(np.array(X), R)  
 
-        # Variable Subsampling
+        # Reduce instance - Variable Subsampling
         N = len(X_reduced)
-        if N < 1000:
-            rand_idx = [i for i in range(N)]
-            pass
-        else:
-            n = np.floor(np.random.uniform(N//20, N//10)).astype(int)
-            rand_idx = np.random.choice(np.arange(N), n, replace=False)      # subsample 5~10% of data
-            X_reduced = X_reduced[rand_idx, :]
+        
+        ## Define subsampling size between min(N, 50) and min(N, 1000)
+        subsampling_lower = min(N, 50)
+        subsampling_upper = min(N, 1000)
+        n = N if N < 50 else np.random.randint(subsampling_lower, subsampling_upper + 1)  # subsampling_lower <= n <= subsampling_upper
+
+        ## Draw samples
+        rand_idx = np.random.choice(np.arange(N), n, replace=False)
 
         return R, X_reduced
 
